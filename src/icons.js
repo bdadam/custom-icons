@@ -22,13 +22,14 @@ var iconNames = [
 var icons = {};
 
 iconNames.forEach(function(name) {
-    icons[name] = require('../icons/' + name + '.svg');
+    icons[name.toLowerCase()] = require('../icons/' + name + '.svg');
 });
 
 var iconPrototype = Object.create(HTMLElement.prototype);
 
 iconPrototype.createdCallback = function() {
-    this.innerHTML = icons[this.getAttribute('type')] || '';
+    var type = (this.getAttribute('type') || '').toLowerCase();
+    this.innerHTML = icons[type] || '';
 };
 
 iconPrototype.attributeChangedCallback = function(name, previousValue, value) {
