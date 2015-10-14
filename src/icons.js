@@ -25,17 +25,16 @@ iconNames.forEach(function(name) {
     icons[name.toLowerCase()] = require('../icons/' + name + '.svg');
 });
 
-var iconPrototype = Object.create(HTMLElement.prototype);
+var proto = Object.create(HTMLElement.prototype);
 
-iconPrototype.createdCallback = function() {
-    var type = (this.getAttribute('type') || '').toLowerCase();
-    this.innerHTML = icons[type] || '';
+proto.createdCallback = function() {
+    this.innerHTML = icons[('' + this.getAttribute('type')).toLowerCase()];
 };
 
-iconPrototype.attributeChangedCallback = function(name, previousValue, value) {
-    if (name === 'type') {
-        this.innerHTML = icons[this.getAttribute('type')] || '';
+proto.attributeChangedCallback = function(attributeName, previousValue, value) {
+    if (attributeName === 'type') {
+        this.innerHTML = icons[('' + this.getAttribute('type')).toLowerCase()];
     }
 };
 
-document.registerElement('x-icon', { prototype: iconPrototype });
+document.registerElement('x-icon', { prototype: proto });
