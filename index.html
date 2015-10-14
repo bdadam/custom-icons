@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Custom icons with custom elements</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            #icons {
+                text-align: center;
+            }
+
+            x-icon {
+                display: inline-block;
+                width: 64px;
+                padding: 12px;
+            }
+
+            x-icon svg path {
+                fill: #8d9;
+            }
+
+            [type="happy"] path, [type="grin"] path {
+                fill: #F5DE0B;
+            }            
+
+            [type="angry"] path, [type="evil"] path {
+                fill: #ff4200;
+            }
+
+            x-icon:nth-of-type(n+5):not(:nth-of-type(n+9)) {
+                width: 32px;
+            }
+
+            x-icon:nth-of-type(n+9):not(:nth-of-type(n+13)) {
+                width: 48px;
+            }
+
+            x-icon:nth-of-type(n+17) {
+                width: 128px;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/document-register-element/0.5.0/document-register-element.js"></script>
+        <script src="icons.min.js"></script>
+
+        <h1>Sample Smiley Icons</h1>
+
+        <section id="icons">
+            <x-icon type="Happy"></x-icon>
+            <x-icon type="grin"></x-icon>
+            <x-icon type="angry"></x-icon>
+            <x-icon type="evil"></x-icon>
+            <br>
+            <x-icon type="baffled"></x-icon>
+            <x-icon type="confused"></x-icon>
+            <x-icon type="cool"></x-icon>
+            <x-icon type="crying"></x-icon>
+            <br>
+            <x-icon type="frustrated"></x-icon>
+            <x-icon type="hipster"></x-icon>
+            <x-icon type="neutral"></x-icon>
+            <x-icon type="sad"></x-icon>
+            <br>
+            <x-icon type="shocked"></x-icon>
+            <x-icon type="sleepy"></x-icon>
+            <x-icon type="smile"></x-icon>
+            <x-icon type="tongue"></x-icon>
+            <br>
+            <x-icon type="wink"></x-icon>
+            <x-icon type="wondering"></x-icon>
+        </section>
+
+        <a href="https://icomoon.io/app/" rel="external">Source: Icomoon App</a>
+    </body>
+</html>
